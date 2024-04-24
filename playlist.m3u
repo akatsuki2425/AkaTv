@@ -1,17 +1,17 @@
 #EXTM3U
-#EXTINF:-1,Bein Sports1 Ar 
+#EXTINF:-1,AR: BEIN SPORTS 1 PRE HD
+
+#EXTINF:-1,AR: BEIN SPORTS 1 PRE HD
 http://huhu.to/play/3509857289/index.m3u8
-#EXTINF:-1,Bein Sports2 Ar 
-http://181.78.8.90:16123/play/ch16
-#EXTINF:-1,Bein Sports3 Ar 
-http://huhu.to/play/2129701954/index.m3u8
-#EXTINF:-1,Bein Sports4 Ar 
-http://vavoo.to/play/972934549/index.m3u8
+#EXTINF:-1,AR: BEIN SPORTS 1 PRE HD
+https://www.vavoo.to/play/3509857289/index.m3u8
+#EXTINF:-1,AR: BEIN SPORTS 1 PRE SD
+https://www.kool.to/play/2066091106/index.m3u8
+#EXTINF:-1,AR: BEIN SPORTS 1 PRE SD
+https://www.huhu.to/play/2497033165/index.m3u8
+#EXTINF:-1,AR: BEIN SPORTS 1 PRE SD
+https://www.vavoo.to/play/2497033165/index.m3u8
 
 
-#EXTINF:-1,Game One Fr 
-http://huhu.to/play/2751425727/index.m3u8
-#EXTINF:-1,Bein SPORTS1 FHD FR 
-http://huhu.to/play/3777541800/index.m3u8
-#EXTINF:-1,FOX SPORTS 3 
-http://181.78.8.90:16123/play/ch21
+#EXTINF:-1,Fr: BEIN SPORTS 1 SD
+https://www.kool.to/play/3777541800/index.m3u8
