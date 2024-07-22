@@ -9,3 +9,13 @@ https://raw.githubusercontent.com/B-inalm3u-Custom/Eropa-Sport/B-inal22/ElevenPL
 https://raw.githubusercontent.com/B-inalm3u-Custom/Bein-Sport/B-inal22/BeinSportTOD2.m3u8
 #EXTINF:-1,BeinSportTOD3
 https://raw.githubusercontent.com/B-inalm3u-Custom/Bein-Sport/B-inal22/BeinSportTOD3.m3u8
+
+
+
+
+#EXTINF:-1,test
+#EXT-X-VERSION:3
+#EXT-X-MEDIA-SEQUENCE:1984
+#EXT-X-TARGETDURATION:6
+#EXT-X-KEY:METHOD=AES-128,URI="https://a1.koura-cdn.live/watch/aWwNahTE2G8Ba-S9bjCnyA/1721679522/1721679776/1/keys/on1_1-1990.key",IV=0x000000000000000000000000000007C6
+https://a1.koura-cdn.live/watch/aWwNahTE2G8Ba-S9bjCnyA/1721679522/1721679776/1/on1_1.m3u8
