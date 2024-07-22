@@ -5,3 +5,5 @@ https://raw.githubusercontent.com/B-inalm3u-Custom/Eropa-Sport/B-inal22/ArenaHR1
 https://bein.akamaized.net/besmenasportsnews/indexhd.m3u8?hdnts=data=env=beinmena-production,customerID=1,jwt=eyJhbGciOiJIUzI1NiJ9.eyJpZF9jaGFubmVsIjo3NSwiYXBpcCI6IjE5Ni4xMTguMTEyLjM5IiwiaWRfaWRlbnRpdHkiOjEsImlkX2RldmljZSI6Im9wZW5hcGkiLCJpZF9jdXN0b21lciI6MSwiaWRfc3RyZWFtIjoiMDgzYmRjNzgtMGVjMy00ZGM0LTg2ZDgtY2VlYTdmM2VjODk1In0.XPgsGPJr0N2vOFuAQVg3344F7ss0DHHRGDzwTp_sadU~ip=196.118.112.39~st=1721632598~exp=1721639798~acl=/besmenasportsnews/*~hmac=fa906db0d9d20afc0259700df6bc6351112c9821547364d6a12e6ea74e5707ef
 #EXTINF:-1,ElevenPL1
 https://raw.githubusercontent.com/B-inalm3u-Custom/Eropa-Sport/B-inal22/ElevenPL1.m3u8
+#EXTINF:-1,BeinSportTOD3
+https://raw.githubusercontent.com/B-inalm3u-Custom/Bein-Sport/B-inal22/BeinSportTOD3.m3u8
