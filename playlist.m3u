@@ -1,17 +1,8 @@
 #EXTM3U
-#EXTINF:-1,AR: BEIN SPORTS 1 PRE HD
-
-#EXTINF:-1,AR: BEIN SPORTS 1 PRE HD
-http://huhu.to/play/3509857289/index.m3u8
-#EXTINF:-1,AR: BEIN SPORTS 1 PRE HD
-https://www.vavoo.to/play/3509857289/index.m3u8
-#EXTINF:-1,AR: BEIN SPORTS 1 PRE SD
-https://www.kool.to/play/2066091106/index.m3u8
-#EXTINF:-1,AR: BEIN SPORTS 1 PRE SD
-https://www.huhu.to/play/2497033165/index.m3u8
-#EXTINF:-1,AR: BEIN SPORTS 1 PRE SD
-https://www.vavoo.to/play/2497033165/index.m3u8
-
-
-#EXTINF:-1,Fr: BEIN SPORTS 1 SD
-https://www.kool.to/play/3777541800/index.m3u8
+#EXT-X-VERSION:7
+## Just In Time Delivered by Quortex Solution, version 3.4.1
+#EXT-X-INDEPENDENT-SEGMENTS
+#EXT-X-STREAM-INF:BANDWIDTH=4500000,AVERAGE-BANDWIDTH=4500000,RESOLUTION=1280x720,FRAME-RATE=50,CODECS="avc1.640029,mp4a.40.2",AUDIO="audio-aacl-main-96"
+video50-1280x720/index.m3u8
+#EXTINF:-1,AR: BEIN SPORTS News 
+https://bein.akamaized.net/besmenasportsnews/video50-1280x720/index.m3u8
