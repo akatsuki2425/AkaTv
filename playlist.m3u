@@ -16,17 +16,17 @@ https://liveakgr.alkassdigital.net/hls/live/2097037/Alkass1bup/master1080.m3u8
 #EXTINF:-1,Skysportpremierleague
 https://raw.githubusercontent.com/B-inalm3u-Custom/Sky-Sport/B-inal22/Skysportpremierleague.m3u8
 #EXTINF:-1,Nova Sports 1
-5.9.148.210:8888/re-nvsp1/index.m3u8
+http://5.9.148.210:8888/re-nvsp1/index.m3u8
 #EXTINF:-1,Nova Sports 2
-5.9.148.210:8888/re-nvsp2/index.m3u8
+http://5.9.148.210:8888/re-nvsp2/index.m3u8
 #EXTINF:-1,Nova Sports 3
-5.9.148.210:8888/re-nvsp3/index.m3u8
+http://5.9.148.210:8888/re-nvsp3/index.m3u8
 #EXTINF:-1,Nova Sports 4
-5.9.148.210:8888/re-nvsp4/index.m3u8
+http://5.9.148.210:8888/re-nvsp4/index.m3u8
 #EXTINF:-1,Nova Sports 5
-5.9.148.210:8888/re-nvsp5/index.m3u8
+http://5.9.148.210:8888/re-nvsp5/index.m3u8
 #EXTINF:-1,Nova Sports 6
-5.9.148.210:8888/re-nvsp6/index.m3u8
+http://5.9.148.210:8888/re-nvsp6/index.m3u8
 
 
 
