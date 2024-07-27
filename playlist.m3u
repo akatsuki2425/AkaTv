@@ -34,3 +34,9 @@ https://m.youtube.com/watch?v=TKGeMQ7PvYE.m3u8
 
 
 
+#EXTM3U
+#EXT-X-TARGETDURATION:1
+#EXT-X-MEDIA-SEQUENCE:0
+#EXTINF:1,bein test
+http://atlantistv.pro:8080/play/live.php?mac=00:1A:79:05:DF:85&stream=267776&extension=m3u8
+
