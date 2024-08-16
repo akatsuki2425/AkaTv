@@ -16,7 +16,6 @@ https://liveakgr.alkassdigital.net/hls/live/2097037/Alkass1bup/master1080.m3u8
 #EXTINF:-1,Skysportpremierleague
 https://raw.githubusercontent.com/B-inalm3u-Custom/Sky-Sport/B-inal22/Skysportpremierleague.m3u8
 #EXTINF:-1,Nova Sports 1
-#EXT-X-STREAM-INF:CLOSED-CAPTIONS=NONE,RESOLUTION=1920x1080,FRAME-RATE=50.000,CODECS="avc1.64002a,mp4a.40.2",AVERAGE-BANDWIDTH=6050000,BANDWIDTH=7560000
 http://5.9.148.210:8888/re-nvsp1/index.m3u8
 #EXTINF:-1,Nova Sports 2
 http://5.9.148.210:8888/re-nvsp2/index.m3u8
@@ -30,7 +29,7 @@ http://5.9.148.210:8888/re-nvsp5/index.m3u8
 http://5.9.148.210:8888/re-nvsp6/index.m3u8
 
 #EXTINF:-1,test
-https://raw.githubusercontent.com/akatsuki2425/AkaTv/master/Bein.m3u8
+http://optimus-tv.org:8080/play/live.php?mac=00:1A:79:01:69:EF&stream=730921&extension=ts&play_token=TuQVr2M1rP
 #EXTINF:-1,Ktv Sport
 https://kwtspta.cdn.mangomolo.com/sp/smil:sp.stream.smil/chunklist_b3500000_t64NzIwcA==.m3u8
 
