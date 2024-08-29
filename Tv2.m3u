@@ -17,8 +17,8 @@ https://a4.koura-cdn.live/watch/hBW2BalCPIq9359wWpOaPQ/1723840519/1723840773/1/b
 #EXTVLCOPT:http-referrer=https://vsys.hes-goals.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 16_7_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1
 
-#EXTINF:0,Bein Sport news
-http://laurenlending.pproxy.cc/play/live.php?mac=00:1A:79:74:08:F0&stream=147140&extension=ts&play_token=sYmbQbPHdA
+#EXTINF:0,Bein Sport test
+https://raw.githubusercontent.com/akatsuki2425/AkaTv/master/Bein.m3u8
 #EXTINF:0,Bein Sport7 (serveur2)
 #EXTVLCOPT:http-referrer=https://vsys.hes-goals.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 16_7_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1
