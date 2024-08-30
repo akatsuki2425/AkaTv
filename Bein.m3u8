@@ -1,4 +1,4 @@
 #EXTM3U
 #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=3000000,RESOLUTION=1920x1080
-http://130.193.165.186/PijPbaNFF2VPaRBiVFiJIUSQWuYEMs0cxKvOgONUA0Q5kxM3blGwLFlzg3SV9j4ynI1gTtkA12CMmelf1QGLMdF__hi__gwUKJDJagatr__ih__7ZEgTKC__ih__uo8sd1gKwj5PwZ__ih__6Yh__ih__Y0DcFLKWKXQ9787lXq__ih__HvPHRCIOJFhC7JeUF88N10fAVnCiO0__ih__lsKTdwI__ih__cGRCS8h1ezyyZhIA9lN0AkqU__ih__5NQriC4MhGH7agCx30yFUZVVNJUAo9__ih__f5Lnx2KwqyCTMelftge1mLe0DoLQylX9vDe__ih__w==---/cache/Falcon-Eye-LB/m3u8/hls_m3u8_Falcon-Eye-HD.m3u8
+http://optimus-tv.org:8080/play/live.php?mac=00:1A:79:01:69:ef&stream=726988&extension=m3u8
 
