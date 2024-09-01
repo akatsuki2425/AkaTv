@@ -4,10 +4,8 @@ http://atlantistv.pro:8080/play/live.php?mac=00:1A:79:05:DF:85&stream=267772&ext
 #EXTVLCOPT:http-referrer=https://vsys.hes-goals.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 16_7_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1
 
-#EXTINF:0,Bein Sport3 (serveur2)
-#EXTVLCOPT:http-referrer=https://vsys.hes-goals.io/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 16_7_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1
-https://a3.koura-cdn.live/watch/HEa78AHUKdv7sBdIzMec9A/1723840429/1723840683/1/b3_1.m3u8
+#EXTINF:0,Bein test 
+http://run.iptv.cab/live/Moh102721Fek/BJUGHL1A5r/436.m3u8
 #EXTINF:0,Bein Sport4 (serveur2)
 #EXTVLCOPT:http-referrer=https://vsys.hes-goals.io/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 16_7_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1
