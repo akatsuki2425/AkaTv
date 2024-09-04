@@ -3,3 +3,7 @@
 http://atlantistv.pro:8080/play/live.php?mac=00:1A:79:05:DF:85&stream=267772&extension=m3u8
 #EXTINF:0,Bein test 
 https://raw.githubusercontent.com/akatsuki2425/AkaTv/master/Bein1.m3u8
+
+#EXTINF:0,eleven Sport
+#EXT-X-STREAM-INF:BANDWIDTH=48000,AVERAGE-BANDWIDTH=48000,RESOLUTION=1920x1080,FRAME-RATE=25.000,CODECS="avc1",AUDIO="ac-3"
+http://cd7n120x.socminlt.com/iptv/YDFRWUQHUKMN2V/2518/index.m3u8
