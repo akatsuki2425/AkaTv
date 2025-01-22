@@ -1,4 +1,10 @@
 #EXTM3U
+------------------------------vavoo serveur-------------------------------------------
+#EXTINF:0,Bein Sports HD1
+#EXTVLCOPT:http-referrer=http://vavoo.to/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 16_7_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
+http://vavoo.to/play/2155997443/index.m3u8
+------------------------------strymtv serveur-------------------------------------------
 #EXTINF:0,Bein Sport1
 #EXTVLCOPT:http-referrer=https://cookiewebplay.ru/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 16_7_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
