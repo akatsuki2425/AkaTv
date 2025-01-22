@@ -41,8 +41,3 @@ https://xyzdddd.mizhls.ru/lb/premium99/index.m3u8
 https://xyzdddd.mizhls.ru/lb/premium100/index.m3u8
 
 
-#EXTINF:0,SSC
-#EXTVLCOPT:http-referrer=https://www.sportina.pro/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 16_7_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148
-https://www.sportina.pro/SSC-1/tracks-v1a1/mono.m3u8
-
