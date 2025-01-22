@@ -41,6 +41,6 @@ https://xyzdddd.mizhls.ru/lb/premium99/index.m3u8
 https://xyzdddd.mizhls.ru/lb/premium100/index.m3u8
 
 #EXTINF:0,AD SPoRT
-EXTVLCOPT:http-referrer=https://www.sportina.pro/
+#EXTVLCOPT:http-referrer=https://www.sportina.pro/
 #EXTVLCOPT:http-user-agent=AppleCoreMedia/1.0.0.20H350 (iPhone; U; CPU OS 16_7_10 like Mac OS X; fr_fr)
 https://www.sportina.pro/BEIN-1-TOD/tracks-v1a1/mono.m3u8
