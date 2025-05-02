@@ -1,5 +1,4 @@
 #EXTM3U
 #EXTVLCOPT:network-caching=3000
-#EXTVLCOPT:http-user-agent=Mozilla/5.0
 #EXTVLCOPT:http-referrer=http://run.iptv.cab/
 http://run.iptv.cab/Moh102721Fek/BJUGHL1A5r/22219
