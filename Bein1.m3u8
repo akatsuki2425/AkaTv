@@ -1,3 +1,23 @@
 #EXTM3U
 #EXT-X-STREAM-INF:AVERAGE-BANDWIDTH=3000000,BANDWIDTH=4000000,RESOLUTION=1280x720,FRAME-RATE=30.000,CLOSED-CAPTIONS=NONE
 https://xyzdddd.mizhls.ru/lb/premium91/index.m3u8
+
+
+
+#!/usr/bin/env bash
+
+# رابطك مع التوكن المؤقت
+INPUT_URL="http://run.iptv.cab/Moh102721Fek/BJUGHL1A5r/22219"
+
+# نستخدم curl لاستخراج هيدر Location النهائي
+REAL_URL=$(curl -s -I -L "$INPUT_URL" \
+  | awk '/^Location: /{print $2}' \
+  | tr -d '\r')
+
+if [[ -n "$REAL_URL" ]]; then
+  echo "الرابط الأصلي هو:"
+  echo "$REAL_URL"
+else
+  echo "خطأ: لم أتمكن من استخراج Location."
+  exit 1
+fi
