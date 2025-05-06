@@ -6,13 +6,3 @@
 #EXTVLCOPT:file-caching=1000
 #EXTVLCOPT:live-caching=1000
 http://run.iptv.cab/live/Moh102721Fek/BJUGHL1A5r/22219.m3u8
-
-# ———— الجهاز الأوّل ————
-#EXTVLCOPT:http-user-agent=DeviceOneAgent
-#EXTINF:-1,tvg-name="My IPTV Channel (Device 1)"
-http://run.iptv.cab/Moh102721Fek/BJUGHL1A5r/22219?cache=1746489600&agent=D1&uid=1
-
-# ———— الجهاز الثاني ————
-#EXTVLCOPT:http-user-agent=DeviceTwoAgent
-#EXTINF:-1,tvg-name="My IPTV Channel (Device 2)"
-http://run.iptv.cab/Moh102721Fek/BJUGHL1A5r/22219?cache=1746490200&agent=D2&uid=2
