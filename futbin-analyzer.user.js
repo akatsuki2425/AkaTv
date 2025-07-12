@@ -9,8 +9,8 @@
 // @grant        none
 // @license      MIT
 // @icon         https://www.futbin.com/favicon.ico
-// @downloadURL  https://yourdomain.com/path/futbin-analyzer.user.js
-// @updateURL    https://yourdomain.com/path/futbin-analyzer.user.js
+// @downloadURL  https://raw.githubusercontent.com/akatsuki2425/AkaTv/refs/heads/master/futbin-analyzer.user.js
+// @updateURL    https://raw.githubusercontent.com/akatsuki2425/AkaTv/refs/heads/master/futbin-analyzer.user.js
 // ==/UserScript==
 
 (function() {
