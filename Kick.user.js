@@ -13,72 +13,66 @@
 // ==/UserScript==
 
 (function () {
-  'use strict';
+    'use strict';
 
-  const statsBox = document.createElement('div');
-  statsBox.id = 'kick-stats-box';
-  statsBox.style.position = 'fixed';
-  statsBox.style.top = '10px';
-  statsBox.style.left = '10px';
-  statsBox.style.zIndex = '99999';
-  statsBox.style.backgroundColor = 'rgba(0,0,0,0.8)';
-  statsBox.style.color = '#00ff99';
-  statsBox.style.padding = '10px 14px';
-  statsBox.style.borderRadius = '10px';
-  statsBox.style.fontSize = '14px';
-  statsBox.style.fontFamily = 'Arial, sans-serif';
-  statsBox.style.boxShadow = '0 0 12px rgba(0,0,0,0.6)';
-  statsBox.style.whiteSpace = 'nowrap';
-  statsBox.innerHTML = '📊 Loading...';
+    const statsBox = document.createElement('div');
+    statsBox.style = `
+        position: fixed; top: 10px; left: 10px; z-index: 9999;
+        background: rgba(0,0,0,0.85); color: white;
+        padding: 10px; border-radius: 8px;
+        font-family: Arial; font-size: 14px;
+    `;
+    document.body.appendChild(statsBox);
 
-  const closeButton = document.createElement('span');
-  closeButton.textContent = '✖';
-  closeButton.style.cursor = 'pointer';
-  closeButton.style.position = 'absolute';
-  closeButton.style.top = '4px';
-  closeButton.style.right = '8px';
-  closeButton.style.color = '#ff6666';
-  closeButton.style.fontSize = '12px';
-  closeButton.title = 'Close';
-  closeButton.onclick = () => statsBox.remove();
+    function extractViewerCount() {
+        const container = document.querySelector('[data-testid="viewer-count"]');
+        if (!container) return null;
 
-  statsBox.appendChild(closeButton);
-  document.body.appendChild(statsBox);
+        const digitBlocks = container.querySelectorAll('div.flex.overflow-hidden');
+        if (!digitBlocks.length) return null;
 
-  function analyzeViewers() {
-    const viewerElement = document.querySelector('p.viewer-count');
-    const messages = document.querySelectorAll('.chat-message .username');
+        let number = '';
+        digitBlocks.forEach(block => {
+            const visibleDigit = Array.from(block.children).find(child => {
+                const transform = window.getComputedStyle(child).transform;
+                return transform && transform.includes('translateY(0') || transform === 'none';
+            });
+            if (visibleDigit) {
+                number += visibleDigit.textContent.trim();
+            } else {
+                // fallback: pick first number
+                number += block.children[0]?.textContent.trim() || '0';
+            }
+        });
 
-    if (!viewerElement) {
-      statsBox.innerHTML = '❌ Viewer count not found.';
-      statsBox.appendChild(closeButton);
-      return;
+        return parseInt(number.replace(/\D/g, '')) || 0;
     }
 
-    const viewerCount = parseInt(viewerElement.textContent.replace(/\D/g, '')) || 0;
-    const uniqueChatters = new Set();
+    function analyze() {
+        const viewers = extractViewerCount();
+        if (!viewers) {
+            statsBox.textContent = '❌ Viewer count not found or not yet loaded.';
+            return;
+        }
 
-    messages.forEach((msg) => uniqueChatters.add(msg.textContent.trim()));
+        const usernames = new Set([...document.querySelectorAll('.chat-message .username')].map(e => e.textContent.trim()));
+        const real = usernames.size;
+        const fake = Math.max(viewers - real, 0);
+        const percent = viewers > 0 ? ((real / viewers) * 100).toFixed(1) : 0;
 
-    const realViewers = uniqueChatters.size;
-    const fakeEstimate = Math.max(viewerCount - realViewers, 0);
-    const percentReal = viewerCount > 0 ? ((realViewers / viewerCount) * 100).toFixed(1) : 0;
+        let color = '#00ff99';
+        if (percent < 30) color = '#ff4d4d';
+        else if (percent < 60) color = '#ffaa00';
 
-    let color = '#00ff99';
-    if (percentReal < 30) color = '#ff4d4d';
-    else if (percentReal < 60) color = '#ffcc00';
+        statsBox.style.color = color;
+        statsBox.innerHTML = `
+            👁️ ${viewers} total<br>
+            💬 ${real} chatting<br>
+            🤖 ${fake} possibly bots<br>
+            ✅ ${percent}% real viewers
+        `;
+    }
 
-    statsBox.style.color = color;
-    statsBox.innerHTML = `
-      📊 <b>Stream Analysis:</b><br>
-      👁️ <b>Viewers:</b> ${viewerCount}<br>
-      💬 <b>Chatters:</b> ${realViewers}<br>
-      🤖 <b>Non-chatting est.:</b> ${fakeEstimate}<br>
-      ✅ <b>Real %:</b> ${percentReal}%
-    `;
-    statsBox.appendChild(closeButton);
-  }
-
-  setTimeout(analyzeViewers, 5000);
-  setInterval(analyzeViewers, 30000);
+    setTimeout(analyze, 8000);
+    setInterval(analyze, 30000);
 })();
