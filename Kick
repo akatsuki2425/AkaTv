@@ -7,6 +7,9 @@
 // @icon         https://kick.com/favicon.ico
 // @grant        none
 // @license      MIT
+// @downloadURL  https://raw.githubusercontent.com/akatsuki2425/AkaTv/refs/heads/master/Kick
+// @updateURL    https://raw.githubusercontent.com/akatsuki2425/AkaTv/refs/heads/master/Kick
+// ==/UserScript==
 // ==/UserScript==
 
 (function () {
