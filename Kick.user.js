@@ -15,6 +15,8 @@
 (function () {
     'use strict';
 
+    // --- التحليل المتقدم ---
+
     function calculateRSI(data, period = 14) {
         let gains = 0, losses = 0;
         for (let i = 1; i <= period; i++) {
@@ -23,33 +25,84 @@
             else losses -= diff;
         }
         const avgGain = gains / period;
-        const avgLoss = losses / period || 1; // avoid divide by zero
+        const avgLoss = losses / period || 1;
         const rs = avgGain / avgLoss;
-        return (100 - (100 / (1 + rs))).toFixed(2);
+        const rsi = 100 - (100 / (1 + rs));
+        return rsi.toFixed(2);
     }
 
-    function getMarketTrend(prices) {
-        const recent = prices.slice(-5);
-        let trendScore = 0;
-        for (let i = 1; i < recent.length; i++) {
-            if (recent[i] > recent[i - 1]) trendScore++;
-            else if (recent[i] < recent[i - 1]) trendScore--;
+    function calculateMACD(prices, shortPeriod = 12, longPeriod = 26, signalPeriod = 9) {
+        function EMA(list, period) {
+            const k = 2 / (period + 1);
+            let ema = list.slice(0, period).reduce((a, b) => a + b) / period;
+            for (let i = period; i < list.length; i++) {
+                ema = list[i] * k + ema * (1 - k);
+            }
+            return ema;
         }
-        if (trendScore >= 3) return "🔼 صاعد";
-        else if (trendScore <= -3) return "🔽 هابط";
-        else return "🔁 جانبي";
+        const macdLine = EMA(prices, shortPeriod) - EMA(prices, longPeriod);
+        // حساب خط الإشارة بشكل تقريبي
+        const signalLine = EMA(Array(prices.length).fill(macdLine), signalPeriod);
+        return {macdLine: macdLine.toFixed(2), signalLine: signalLine.toFixed(2)};
     }
 
-    function analyzePrices(data) {
+    function calculateBollingerBands(prices, period = 20) {
+        if(prices.length < period) return {upper: "N/A", lower: "N/A"};
+        const slice = prices.slice(-period);
+        const avg = slice.reduce((a, b) => a + b, 0) / period;
+        const stdDev = Math.sqrt(slice.reduce((a, b) => a + Math.pow(b - avg, 2), 0) / period);
+        return {
+            upper: (avg + 2 * stdDev).toFixed(2),
+            lower: (avg - 2 * stdDev).toFixed(2)
+        };
+    }
+
+    // --- تخزين وإعدادات المستخدم ---
+
+    function savePriceHistory(playerId, prices) {
+        GM_setValue(`priceHistory_${playerId}`, JSON.stringify(prices));
+    }
+    function loadPriceHistory(playerId) {
+        const val = GM_getValue(`priceHistory_${playerId}`, "[]");
+        return JSON.parse(val);
+    }
+
+    // --- الإشعارات الذكية ---
+    function notifyUser(title, text, icon) {
+        GM_notification({
+            title: title,
+            text: text,
+            image: icon || "https://www.futbin.com/favicon.ico",
+            timeout: 6000
+        });
+    }
+
+    // --- تحليل الأسعار الأساسي + إضافات ---
+    function analyzePrices(data, playerId) {
         const prices = data.map(d => d[1]).filter(p => p > 0);
+        savePriceHistory(playerId, prices);
+
         const latest = prices[prices.length - 1];
         const highest = Math.max(...prices);
         const lowest = Math.min(...prices);
         const average = (prices.reduce((a, b) => a + b, 0) / prices.length).toFixed(2);
         const deviation = ((latest - average) / average * 100).toFixed(2);
         const rsi = prices.length >= 15 ? calculateRSI(data.slice(-15)) : "N/A";
-        const trend = getMarketTrend(prices);
+        const macdObj = prices.length >= 26 ? calculateMACD(prices) : {macdLine: "N/A", signalLine: "N/A"};
+        const bollinger = prices.length >= 20 ? calculateBollingerBands(prices) : {upper: "N/A", lower: "N/A"};
 
+        // إشعارات ذكية
+        if(rsi !== "N/A" && (parseFloat(rsi)<30 || parseFloat(rsi)>70)){
+            notifyUser("توصية سعر", rsi<30 ? "فرصة شراء محتملة" : "فرصة بيع محتملة");
+        }
+        if(latest >= bollinger.upper && bollinger.upper!=="N/A") {
+            notifyUser("تنبيه بولينجر", "السعر أعلى من النطاق المعتاد!");
+        }
+        if(latest <= bollinger.lower && bollinger.lower!=="N/A") {
+            notifyUser("تنبيه بولينجر", "السعر أقل من النطاق المعتاد!");
+        }
+
+        // التوصية
         let advice = "⚪ لا توجد توصية";
         if (rsi !== "N/A") {
             const rsiVal = parseFloat(rsi);
@@ -57,10 +110,11 @@
             else if (rsiVal > 70) advice = "🔴 فرصة بيع (Overbought)";
         }
 
-        return { latest, highest, lowest, average, deviation, rsi, trend, advice };
+        return { latest, highest, lowest, average, deviation, rsi, advice, macd: macdObj, bollinger };
     }
 
-    function insertResultBox(result) {
+    // --- واجهة مستخدم تفاعلية + تصدير CSV ---
+    function insertResultBox(result, playerId) {
         const target = document.querySelector('.highcharts-graph-wrapper');
         if (!target) return;
 
@@ -71,23 +125,15 @@
         box.id = 'price-analyzer-box';
         box.style.marginTop = '20px';
         box.style.padding = '15px';
-        box.style.border = '2px solid';
         box.style.borderRadius = '8px';
         box.style.backgroundColor = '#f1f9ff';
-        box.style.fontSize = '14px';
         box.style.color = '#000';
+        box.style.fontSize = '14px';
         box.style.lineHeight = '1.6';
-
-        // لون الإطار حسب RSI
-        if (result.rsi !== "N/A") {
-            const rsiVal = parseFloat(result.rsi);
-            if (rsiVal < 30) box.style.borderColor = "#28a745"; // أخضر
-            else if (rsiVal > 70) box.style.borderColor = "#dc3545"; // أحمر
-            else box.style.borderColor = "#007bff"; // أزرق
-        }
+        box.style.border = '2px solid #007bff';
 
         box.innerHTML = `
-            <h3 style="margin-bottom: 10px;">📊 تحليل أسعار XBOX</h3>
+            <h3 style="margin-bottom: 10px;">📊 تحليل أسعار PS</h3>
             <ul style="list-style: none; padding: 0;">
                 <li>🔸 <strong>آخر سعر:</strong> ${result.latest}</li>
                 <li>🔺 <strong>أعلى سعر:</strong> ${result.highest}</li>
@@ -96,34 +142,42 @@
                 <li>⚖️ <strong>الانحراف عن المتوسط:</strong> ${result.deviation}%</li>
                 <li>🧮 <strong>RSI (14):</strong> ${result.rsi}</li>
                 <li>📌 <strong>التوصية:</strong> ${result.advice}</li>
-                <li>📊 <strong>اتجاه السوق:</strong> ${result.trend}</li>
+                <li>📊 <strong>MACD:</strong> ${result.macd.macdLine} | Signal: ${result.macd.signalLine}</li>
+                <li>📏 <strong>Bollinger (أعلى/أدنى):</strong> ${result.bollinger.upper} / ${result.bollinger.lower}</li>
             </ul>
+            <button id="export-btn">تصدير البيانات (CSV)</button>
         `;
-
         target.parentElement.appendChild(box);
+
+        document.getElementById('export-btn').onclick = function() {
+            const priceHistory = loadPriceHistory(playerId);
+            let csv = "Index,Price\n";
+            priceHistory.forEach((p, i) => { csv += `${i+1},${p}\n`; });
+            const blob = new Blob([csv], {type: 'text/csv'});
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'futbin_price_history.csv';
+            link.click();
+        };
     }
 
+    // --- مراقبة الأخطاء وتحديث البيانات تلقائياً ---
     function analyzeAndInsert() {
         const graphDiv = document.querySelector('.highcharts-graph-wrapper');
         if (!graphDiv) return;
-
         try {
-            const xboxData = graphDiv.getAttribute('data-xbox-data');
-            if (!xboxData) {
-                console.warn("❌ لا توجد بيانات XBOX");
-                return;
-            }
-            const result = analyzePrices(JSON.parse(xboxData));
-            insertResultBox(result);
+            const psData = JSON.parse(graphDiv.getAttribute('data-ps-data'));
+            const playerId = window.location.pathname.split('/')[2] || "unknown";
+            const result = analyzePrices(psData, playerId);
+            insertResultBox(result, playerId);
         } catch (e) {
+            notifyUser("خطأ تحليل البيانات", "فشل في تحليل بيانات سعر اللاعب");
             console.warn("❌ فشل في تحليل البيانات:", e);
         }
     }
 
     window.addEventListener('load', () => {
-        setTimeout(() => {
-            analyzeAndInsert();
-            setInterval(analyzeAndInsert, 60000); // تحديث كل دقيقة
-        }, 3000); // ننتظر 3 ثواني بعد تحميل الصفحة
+        analyzeAndInsert();
+        setInterval(analyzeAndInsert, 60000);
     });
 })();
