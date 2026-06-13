@@ -6,4 +6,5 @@ https://mngbcg.b-cdn.net/FS1/tracks-v1a1/mono.ts.m3u8
 #EXTINF:0,Arryadia tnt
 https://stream-lb.livemediama.com/arryadia-tnt/hls/master.m3u8
 #EXTINF:0,itv
-https://lb6.strmd.st/secure/etpRfEAZYIClYIKADbkcYItzQyGvhvZW/rtmp/stream/_lk4m-3Lz2_DfIh1XjFmjaZHjPlYJLhR8ElEALkD8L3LvgslwzbVwl0UUvukIrobepdCONUx/1/high/mono.m3u8 __Ref:"https://embed.st/"
+#EXTVLCOPT:http-referrer=https://embed.st/
+https://lb6.strmd.st/secure/etpRfEAZYIClYIKADbkcYItzQyGvhvZW/rtmp/stream/_lk4m-3Lz2_DfIh1XjFmjaZHjPlYJLhR8ElEALkD8L3LvgslwzbVwl0UUvukIrobepdCONUx/1/high/mono.m3u8
