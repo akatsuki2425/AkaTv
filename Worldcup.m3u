@@ -9,6 +9,6 @@ https://stream-lb.livemediama.com/arryadia-tnt/hls/master.m3u8
 https://mngbcg.b-cdn.net/TSN1/tracks-v1a1/mono.ts.m3u8
 #EXTINF:0,alaoula-tnt
 https://stream-lb.livemediama.com/alaoula-tnt/hls/master.m3u8
-#EXTINF:0,php
+#EXTINF:0,php1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 https://streamed.cfd/set.php?84
