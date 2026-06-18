@@ -1,7 +1,6 @@
-#EXTINF:0,Bein Sport 1 
-https://raw.githubusercontent.com/akatsuki2425/AkaTv/refs/heads/master/Bein1.m3u8
-#EXTINF:0,Bein Sport fr
-https://raw.githubusercontent.com/akatsuki2425/AkaTv/refs/heads/master/Bein3.m3u8
-
-
-
+#EXTM3U
+#EXTINF:-1 tvg-id="beIN_Sports_1" tvg-name="beIN Sports 1" group-title="Sports", beIN Sports 1 HD
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1
+#EXTVLCOPT:http-referrer=https://the-authorized-website.com/
+#EXTVLCOPT:http-origin=https://the-authorized-website.com
+http://server-address.xyz:8080/live/username/password/1234.m3u8
